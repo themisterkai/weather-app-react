@@ -1,12 +1,13 @@
 import Weather from './Weather';
 import Control from './Control';
-import Description from './description';
+import Description from './Description';
 import Forecast from './Forecast';
 import SearchBar from './SearchBar';
-import { getType } from '../WeatherContext';
 import { useQuery } from '@tanstack/react-query';
 import { WeatherResponse } from '../utils/types';
 import weatherService from '../services/weather';
+import { getWeatherType } from '../utils/weatherHelpers';
+import Footer from './Footer';
 
 const MainContainer = () => {
   const result = useQuery<WeatherResponse>({
@@ -28,13 +29,14 @@ const MainContainer = () => {
   const { main } = weather.weather[0];
 
   return (
-    <div className={'main ' + getType(main)}>
+    <div className={'main ' + getWeatherType(main)}>
       <div className="container">
         <Control />
         <Weather />
         <Description />
         <Forecast />
         <SearchBar />
+        <Footer />
       </div>
     </div>
   );

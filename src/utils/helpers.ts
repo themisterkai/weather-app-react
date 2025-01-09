@@ -1,5 +1,3 @@
-// import { errorGeoCode1, errorGeoCodeOthers } from './constants';
-// import { errorPlaceholder } from './selectors';
 import {
   ErrorLatLong,
   ForecastList,

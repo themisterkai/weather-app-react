@@ -29,6 +29,7 @@ const SearchBar = () => {
   const handleSubmit = () => {
     newWeatherMutation.mutate({ city });
     newForecastMutation.mutate({ city });
+    setCity('');
   };
 
   const handleKeyDown = (event: React.KeyboardEvent) => {
