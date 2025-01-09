@@ -7,6 +7,3 @@ export const error404 = `Can't find what you're looking for. Try another city, <
 export const errorGeoCode1 = `Permission required to proceed with  acquisition of the geolocation information. Please give permission and try again.`;
 export const errorGeoCodeOthers = `Acquisition of the geolocation information failed. Please try again.`;
 
-// String constants
-export const celcius = 'celcius';
-export const fahrenheit = 'fahrenheit';

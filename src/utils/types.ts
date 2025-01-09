@@ -1,9 +1,3 @@
-// export interface WeatherRequestParams {
-//   city?: string;
-//   lat?: number;
-//   lon?: number;
-// }
-
 export interface WeatherResponse {
   coord: {
     lon: number;

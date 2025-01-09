@@ -1,13 +1,9 @@
-import Forecast from './components/Forecast';
-import SearchBar from './components/SearchBar';
-import Weather from './components/Weather';
+import MainContainer from './components/MainContainer';
 
 function App() {
   return (
     <>
-      <Weather />
-      <Forecast />
-      <SearchBar />
+      <MainContainer />
     </>
   );
 }
