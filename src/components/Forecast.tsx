@@ -1,10 +1,11 @@
 import { useQuery } from '@tanstack/react-query';
 import weatherService from '../services/weather';
 import { ForecastResponse } from '../utils/types';
-import { celcius, fahrenheit } from '../utils/constants';
 import { formatFutureForecast } from '../utils/helpers';
+import { useSettingsValue } from '../SettingsContext';
 
 const Forecast = () => {
+  const tempSetting = useSettingsValue();
   const result = useQuery<ForecastResponse>({
     queryKey: ['forecast'],
     queryFn: () => weatherService.fetchForecast({ city: 'Stockholm' }),
@@ -26,19 +27,23 @@ const Forecast = () => {
   console.log('FORECAST: ', forecast);
 
   return (
-    <div>
+    <div className="forecast">
       {futureForecast.map(forecast => (
-        <>
-          <div>{forecast.day}</div>
-          <p className={celcius}>
-            <span className="low">↓ ${forecast.lowC} °C</span>
-            <span className="high">↑ {forecast.highC} °C</span>
-          </p>
-          <p className={fahrenheit}>
-            <span className="low">↓ ${forecast.lowF} °F</span>
-            <span className="high">↑ {forecast.highF} °F</span>
-          </p>
-        </>
+        <div className="forecast-line">
+          <p>{forecast.day}</p>
+          {tempSetting === 'C' && (
+            <p>
+              <span className="low">{`↓ ${forecast.lowC} °C`}</span>
+              <span className="high">{`↑ ${forecast.highC} °C`}</span>
+            </p>
+          )}
+          {tempSetting === 'F' && (
+            <p>
+              <span className="low">{`↓ ${forecast.lowF} °F`}</span>
+              <span className="high">{`↑ ${forecast.highF} °F`}</span>
+            </p>
+          )}
+        </div>
       ))}
     </div>
   );

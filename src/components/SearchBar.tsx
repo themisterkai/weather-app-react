@@ -39,11 +39,14 @@ const SearchBar = () => {
   };
 
   return (
-    <div>
+    <div className="search-bar">
       <input
         value={city}
         onChange={({ target }) => setCity(target.value)}
         onKeyDown={handleKeyDown}
+        id="search-bar"
+        type="text"
+        placeholder="Search by city name"
       ></input>
     </div>
   );
