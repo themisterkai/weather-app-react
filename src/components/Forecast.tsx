@@ -30,18 +30,18 @@ const Forecast = () => {
     <div className="forecast">
       {futureForecast.map(forecast => (
         <div className="forecast-line">
-          <p>{forecast.day}</p>
+          <div>{forecast.day}</div>
           {tempSetting === 'C' && (
-            <p>
+            <div>
               <span className="low">{`↓ ${forecast.lowC} °C`}</span>
               <span className="high">{`↑ ${forecast.highC} °C`}</span>
-            </p>
+            </div>
           )}
           {tempSetting === 'F' && (
-            <p>
+            <div>
               <span className="low">{`↓ ${forecast.lowF} °F`}</span>
               <span className="high">{`↑ ${forecast.highF} °F`}</span>
-            </p>
+            </div>
           )}
         </div>
       ))}

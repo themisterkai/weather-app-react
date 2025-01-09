@@ -71,6 +71,10 @@ html, body, #root, .main {
   border-bottom: 1px dashed;
 }
 
+.forecast-line div {
+  margin: 3px 0px;
+}
+
 .weather {
   margin-bottom: 30px;
 }
@@ -112,7 +116,7 @@ input {
   height: 70px;
 }
 
-footer {
+.footer {
   width: 100%;
   max-width: 400px;
 }
@@ -207,7 +211,7 @@ footer {
   .weather {
     max-width: 500px;
     font-size: 24px;
-    margin: 2px;
+    margin-bottom: 30px;
   }
 
   .control {
@@ -218,8 +222,8 @@ footer {
     max-width: 500px;
   }
 
-  footer {
-    width: 100%;
+  .footer {
+    margin-top: 60px;
     max-width: 500px;
   }
 
@@ -228,7 +232,7 @@ footer {
   }
 }
 
-#icon {
+.icon {
   height: 70px;
   transform-origin: left top;
   animation: scale 4000ms ease-in-out alternate infinite;
