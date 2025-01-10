@@ -11,16 +11,15 @@ const Weather = () => {
     queryFn: () => weatherService.fetchWeather({ city: 'stockholm' }),
     retry: 1,
   });
-  // console.log(JSON.parse(JSON.stringify(result)));
 
   if (result.isLoading) {
-    return <></>;
+    return null;
   }
 
   const weather = result.data;
 
   if (result.isError || !weather) {
-    return <></>;
+    return null;
   }
 
   const { timezone } = weather;

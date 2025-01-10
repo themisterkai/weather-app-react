@@ -9,6 +9,7 @@ import weatherService from '../services/weather';
 import { getWeatherType } from '../utils/weatherHelpers';
 import Footer from './Footer';
 import Geolocation from './Geolocation';
+import Notification from './Notification';
 
 const MainContainer = () => {
   const result = useQuery<WeatherResponse>({
@@ -24,7 +25,9 @@ const MainContainer = () => {
   const weather = result.data;
 
   if (result.isError || !weather) {
-    return <div>user service is not available due to problems in server</div>;
+    return (
+      <div>weather service is not available due to problems in server</div>
+    );
   }
 
   const { main } = weather.weather[0];
@@ -38,6 +41,7 @@ const MainContainer = () => {
         <Forecast />
         <SearchBar />
         <Geolocation />
+        <Notification />
         <Footer />
       </div>
     </div>

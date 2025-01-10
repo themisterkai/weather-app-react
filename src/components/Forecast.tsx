@@ -13,13 +13,13 @@ const Forecast = () => {
   });
 
   if (result.isLoading) {
-    return <></>;
+    return null;
   }
 
   const forecast = result.data;
 
   if (result.isError || !forecast) {
-    return <></>;
+    return null;
   }
 
   const futureForecast = formatFutureForecast(forecast.list);
@@ -27,18 +27,30 @@ const Forecast = () => {
   return (
     <div className="forecast">
       {futureForecast.map(forecast => (
-        <div className="forecast-line">
+        <div className="forecast-line" key={forecast.day}>
           <div>{forecast.day}</div>
           {tempSetting === 'C' && (
             <div className="forecast-line-temp">
-              <span className="low">{`↓ ${forecast.lowC} °C`}</span>
-              <span className="high">{`↑ ${forecast.highC} °C`}</span>
+              <span className="low">
+                <span>↓ ${forecast.lowC}</span>
+                <span className="temp-sign">°C</span>
+              </span>
+              <span className="high">
+                <span>↑ ${forecast.highC}</span>
+                <span className="temp-sign">°C</span>
+              </span>
             </div>
           )}
           {tempSetting === 'F' && (
             <div className="forecast-line-temp">
-              <span className="low">{`↓ ${forecast.lowF} °F`}</span>
-              <span className="high">{`↑ ${forecast.highF} °F`}</span>
+              <span className="low">
+                <span>↓ ${forecast.lowF}</span>
+                <span className="temp-sign">°F</span>
+              </span>
+              <span className="high">
+                <span>↑ ${forecast.highF}</span>
+                <span className="temp-sign">°F</span>
+              </span>
             </div>
           )}
         </div>

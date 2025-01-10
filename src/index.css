@@ -68,10 +68,15 @@ html, body, #root {
 }
 
 .low {
-  padding-right: 5px;
+  padding-right: 22px;
   text-align: left;
   min-width: 80px;
 }
+
+.temp-sign {
+  float: right;
+}
+
 
 input {
   background: #f4f7f8;
@@ -98,6 +103,17 @@ input {
   max-width: 400px;
 }
 
+.notification {
+  display: flex;
+  justify-content: left;
+  align-items: flex-end; 
+  height:60px;
+  width: 100%;
+  font-size: 14px;
+  margin-bottom: 10px;
+  max-width: 400px;
+}
+
 .search-bar {
   display: flex;
   flex-direction: column;
@@ -114,11 +130,6 @@ input {
 .underlined {
   text-decoration: underline;
   cursor: pointer;
-}
-
-.error {
-  font-size: 14px;
-  margin-bottom: 10px;
 }
 
 .grey {
@@ -187,6 +198,7 @@ input {
   .search-bar,
   .footer,
   .weather,
+  .notification,
   .forecast {
     max-width: 500px;
   }
@@ -203,9 +215,9 @@ input {
     margin-bottom: 30px;
   }
 
-  .footer {
-    margin-top: 60px;
-  }
+  /* .geolocation {
+    margin-bottom: 60px;
+  } */
 
   input {
     width: 200px;

@@ -14,13 +14,13 @@ const Description = () => {
   });
 
   if (result.isLoading) {
-    return <></>;
+    return null;
   }
 
   const weather = result.data;
 
   if (result.isError || !weather) {
-    return <></>;
+    return null;
   }
 
   const { name } = weather;
