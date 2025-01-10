@@ -1,50 +1,45 @@
-# React + TypeScript + Vite
+# Weather App - React & React Query
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A simple weather application built with **React**, **React Query**, and the OpenWeather API. This app allows users to search for current weather information by city, and by geolocation.
 
-Currently, two official plugins are available:
+## Demo
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+You can view the live demo of the app at:
 
-## Expanding the ESLint configuration
+[Weather App Demo](https://weatherapp-reactquery.netlify.app/)
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Features
 
-- Configure the top-level `parserOptions` property like this:
+- Search for weather by city.
+- View current temperature, weather description, and weather forecast.
+- Use geolocation to get weather in current location.
+- Use React Query for efficient data fetching and caching.
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+## Technologies Used
+
+- **React**: JavaScript library for building user interfaces.
+- **React Query**: Data fetching and caching for React.
+- **OpenWeatherMap API**: API to fetch weather data.
+- **CSS**: Styling for the app.
+- **Netlify**: Deployed the app to Netlify.
+
+## Installation
+
+To run this app locally, follow the steps below:
+
+1. **Clone the repository and install dependencies**:
+```bash
+git clone https://github.com/themisterkai/weather-app-react.git
+cd weather-app-react
+npm install
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
-
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+2. **Set up your environment variable**:
+Create a .env file in the root directory and add your API key from OpenWeatherMap.
+```bash
+VITE_OPEN_WEATHER_API_KEY=your_api_key_here
+```
+3. **Start the development server**:
+```bash
+npm run dev
 ```
