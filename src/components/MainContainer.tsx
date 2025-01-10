@@ -8,6 +8,7 @@ import { WeatherResponse } from '../utils/types';
 import weatherService from '../services/weather';
 import { getWeatherType } from '../utils/weatherHelpers';
 import Footer from './Footer';
+import Geolocation from './Geolocation';
 
 const MainContainer = () => {
   const result = useQuery<WeatherResponse>({
@@ -36,6 +37,7 @@ const MainContainer = () => {
         <Description />
         <Forecast />
         <SearchBar />
+        <Geolocation />
         <Footer />
       </div>
     </div>

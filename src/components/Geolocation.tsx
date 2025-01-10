@@ -1,11 +1,9 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query';
-import { useState } from 'react';
+import { getUserLatLong } from '../utils/helpers';
 import weatherService from '../services/weather';
 
-const SearchBar = () => {
+const Geolocation = () => {
   const queryClient = useQueryClient();
-  const [city, setCity] = useState('');
-
   const newWeatherMutation = useMutation({
     mutationFn: weatherService.fetchWeather,
     onSuccess: data => {
@@ -26,31 +24,19 @@ const SearchBar = () => {
     },
   });
 
-  const handleSubmit = () => {
-    newWeatherMutation.mutate({ city });
-    newForecastMutation.mutate({ city });
-    setCity('');
+  const handleGeolocation = async () => {
+    const { latitude: lat, longitude: lon } = await getUserLatLong();
+    newWeatherMutation.mutate({ lat, lon });
+    newForecastMutation.mutate({ lat, lon });
   };
-
-  const handleKeyDown = (event: React.KeyboardEvent) => {
-    if (event.key === 'Enter') {
-      event.preventDefault(); 
-      handleSubmit();
-    }
-  };
-
   return (
-    <div className="search-bar">
-      <input
-        value={city}
-        onChange={({ target }) => setCity(target.value)}
-        onKeyDown={handleKeyDown}
-        id="search-bar"
-        type="text"
-        placeholder="Search by city name"
-      ></input>
+    <div className="geolocation">
+      <span>or </span>
+      <span className="underlined" onClick={handleGeolocation}>
+        use current location
+      </span>
     </div>
   );
 };
 
-export default SearchBar;
+export default Geolocation;

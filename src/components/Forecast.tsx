@@ -13,18 +13,16 @@ const Forecast = () => {
   });
 
   if (result.isLoading) {
-    return <div>loading data...</div>;
+    return <></>;
   }
 
   const forecast = result.data;
 
   if (result.isError || !forecast) {
-    return <div>user service is not available due to problems in server</div>;
+    return <></>;
   }
 
   const futureForecast = formatFutureForecast(forecast.list);
-
-  console.log('FORECAST: ', forecast);
 
   return (
     <div className="forecast">
@@ -32,13 +30,13 @@ const Forecast = () => {
         <div className="forecast-line">
           <div>{forecast.day}</div>
           {tempSetting === 'C' && (
-            <div>
+            <div className="forecast-line-temp">
               <span className="low">{`↓ ${forecast.lowC} °C`}</span>
               <span className="high">{`↑ ${forecast.highC} °C`}</span>
             </div>
           )}
           {tempSetting === 'F' && (
-            <div>
+            <div className="forecast-line-temp">
               <span className="low">{`↓ ${forecast.lowF} °F`}</span>
               <span className="high">{`↑ ${forecast.highF} °F`}</span>
             </div>

@@ -7,7 +7,6 @@ import {
 } from '../utils/weatherHelpers';
 
 const Description = () => {
-  //
   const result = useQuery<WeatherResponse>({
     queryKey: ['weather'],
     queryFn: () => weatherService.fetchWeather({ city: 'stockholm' }),
@@ -15,13 +14,13 @@ const Description = () => {
   });
 
   if (result.isLoading) {
-    return <div>loading data...</div>;
+    return <></>;
   }
 
   const weather = result.data;
 
   if (result.isError || !weather) {
-    return <div>user service is not available due to problems in server</div>;
+    return <></>;
   }
 
   const { name } = weather;
