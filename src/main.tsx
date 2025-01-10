@@ -12,8 +12,7 @@ type ContextProvider = ComponentType<{ children: ReactNode }>;
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
-      staleTime: 0,
-      // staleTime: 1000 * 60 * 5, // Set staleTime globally
+      staleTime: 1000 * 60 * 5,
       refetchOnWindowFocus: false,
       refetchOnReconnect: false,
     },
