@@ -8,6 +8,7 @@ html, body, #root {
 .main {
   font-family: "Montserrat", sans-serif;
   background: blue;
+  min-height: 100% !important;
   height: 100%
 }
 
@@ -64,13 +65,13 @@ html, body, #root {
 .high {
   padding-left: 5px;
   text-align: left;
-  min-width: 80px;
+  min-width: 55px;
 }
 
 .low {
   padding-right: 22px;
   text-align: left;
-  min-width: 80px;
+  min-width: 55px;
 }
 
 .temp-sign {

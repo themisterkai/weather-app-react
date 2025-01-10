@@ -32,24 +32,24 @@ const Forecast = () => {
           {tempSetting === 'C' && (
             <div className="forecast-line-temp">
               <span className="low">
-                <span>↓ ${forecast.lowC}</span>
-                <span className="temp-sign">°C</span>
+                <span>↓</span>
+                <span className="temp-sign">{forecast.lowC} °C</span>
               </span>
               <span className="high">
-                <span>↑ ${forecast.highC}</span>
-                <span className="temp-sign">°C</span>
+                <span>↑ </span>
+                <span className="temp-sign">{forecast.highC} °C</span>
               </span>
             </div>
           )}
           {tempSetting === 'F' && (
             <div className="forecast-line-temp">
               <span className="low">
-                <span>↓ ${forecast.lowF}</span>
-                <span className="temp-sign">°F</span>
+                <span>↓</span>
+                <span className="temp-sign">{forecast.lowF} °F</span>
               </span>
               <span className="high">
-                <span>↑ ${forecast.highF}</span>
-                <span className="temp-sign">°F</span>
+                <span>↑</span>
+                <span className="temp-sign">{forecast.highF} °F</span>
               </span>
             </div>
           )}

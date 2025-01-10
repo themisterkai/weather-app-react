@@ -33,10 +33,10 @@ export const getUserLatLong = async (): Promise<GeolocationCoordinates> => {
 export const celsiusToFahrenheit = (celsius: number): number =>
   (celsius * 9) / 5 + 32;
 
-// round is a helper function to return the temperature with 1 decimal place.
-export const round = (value: number): string => {
+// round is a helper function to return the temperature a fixed decimal.
+export const round = (value: number, toFixed:number = 0): string => {
   const multiplier = Math.pow(10, 1);
-  return (Math.round(value * multiplier) / multiplier).toFixed(1);
+  return (Math.round(value * multiplier) / multiplier).toFixed(toFixed);
 };
 
 // getTime is a helper function that takes in the time and timezone information
