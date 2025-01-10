@@ -16,7 +16,7 @@ const Control = () => {
   const handleSetToF = () => {
     dispatch(setToFahrenheit());
   };
-  //
+
   return (
     <div className="control">
       <span

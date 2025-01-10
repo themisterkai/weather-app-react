@@ -1,6 +1,6 @@
-import axios from 'axios';
+import axios, { AxiosError } from 'axios';
 import { ForecastResponse, WeatherResponse } from '../utils/types';
-import { forecastUrl, weatherUrl } from '../utils/constants';
+import { error404, forecastUrl, weatherUrl } from '../utils/constants';
 
 const API_KEY = import.meta.env.VITE_OPEN_WEATHER_API_KEY;
 
@@ -21,7 +21,12 @@ const fetchWeather = async ({
     const response = await axios.get(url);
     return response.data;
   } catch (error) {
-    console.error('Error fetching weather: ', error);
+    if (axios.isAxiosError(error)) {
+      const axiosError = error as AxiosError;
+      if (axiosError.response?.status === 404) {
+        throw new Error(error404);
+      }
+    }
     throw new Error('Failed to fetch weather data.');
   }
 };
@@ -44,7 +49,12 @@ const fetchForecast = async ({
     const response = await axios.get(url);
     return response.data;
   } catch (error) {
-    console.error('Error fetching forecast: ', error);
+    if (axios.isAxiosError(error)) {
+      const axiosError = error as AxiosError;
+      if (axiosError.response?.status === 404) {
+        throw new Error(error404);
+      }
+    }
     throw new Error('Failed to fetch forecast data.');
   }
 };

@@ -1,4 +1,4 @@
-// import { errorGeoCode1, errorGeoCodeOthers } from './constants';
+import { errorGeoCode1, errorGeoCodeOthers } from './constants';
 import {
   ErrorLatLong,
   ForecastList,
@@ -23,12 +23,9 @@ export const getUserLatLong = async (): Promise<GeolocationCoordinates> => {
   } catch (e) {
     const u = e as ErrorLatLong;
     if (u.code === 1) {
-      // errorPlaceholder!.innerHTML = errorGeoCode1;
-    } else {
-      // errorPlaceholder!.innerHTML = errorGeoCodeOthers;
+      throw new Error(errorGeoCode1);
     }
-    console.error(u.code);
-    return {} as GeolocationCoordinates;
+    throw new Error(errorGeoCodeOthers);
   }
 };
 

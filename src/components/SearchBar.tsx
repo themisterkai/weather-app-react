@@ -1,9 +1,15 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { useState } from 'react';
 import weatherService from '../services/weather';
+import {
+  clearNotification,
+  setNotification,
+  useNotificationDispatch,
+} from '../NotificationContext';
 
 const SearchBar = () => {
   const queryClient = useQueryClient();
+  const notificationDispatch = useNotificationDispatch();
   const [city, setCity] = useState('');
 
   const newWeatherMutation = useMutation({
@@ -12,7 +18,7 @@ const SearchBar = () => {
       queryClient.setQueryData(['weather'], data);
     },
     onError: error => {
-      console.error('Error updating weather:', error);
+      notificationDispatch(setNotification(error.message));
     },
   });
 
@@ -22,11 +28,12 @@ const SearchBar = () => {
       queryClient.setQueryData(['forecast'], data);
     },
     onError: error => {
-      console.error('Error updating forecast:', error);
+      notificationDispatch(setNotification(error.message));
     },
   });
 
   const handleSubmit = () => {
+    notificationDispatch(clearNotification());
     newWeatherMutation.mutate({ city });
     newForecastMutation.mutate({ city });
     setCity('');
@@ -34,7 +41,7 @@ const SearchBar = () => {
 
   const handleKeyDown = (event: React.KeyboardEvent) => {
     if (event.key === 'Enter') {
-      event.preventDefault(); 
+      event.preventDefault();
       handleSubmit();
     }
   };

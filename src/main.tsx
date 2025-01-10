@@ -5,6 +5,7 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import App from './App.tsx';
 import './index.css';
 import { SettingsContextProvider } from './SettingsContext.tsx';
+import { NotificationContextProvider } from './NotificationContext.tsx';
 
 type ContextProvider = ComponentType<{ children: ReactNode }>;
 
@@ -30,7 +31,10 @@ const combineContexts = (contexts: ContextProvider[]) => {
   };
 };
 
-const AllContexts = combineContexts([SettingsContextProvider]);
+const AllContexts = combineContexts([
+  SettingsContextProvider,
+  NotificationContextProvider,
+]);
 
 createRoot(document.getElementById('root')!).render(
   <QueryClientProvider client={queryClient}>
