@@ -39,18 +39,18 @@ export const returnDescriptionText = (city: string, description: string) => {
 export const returnWeatherIcon = (description: string) => {
   switch (description) {
     case 'Clear':
-      return '/src/assets/icons/sunglasses.svg';
+      return '/icons/sunglasses.svg';
     case 'Clouds':
-      return '/src/assets/icons/clouds.svg';
+      return '/icons/clouds.svg';
     case 'Rain':
     case 'Thunderstorm':
     case 'Drizzle':
-      return '/src/assets/icons/umbrella.svg';
+      return '/icons/umbrella.svg';
     case 'Snow':
-      return '/src/assets/icons/snow.svg';
+      return '/icons/snow.svg';
     case 'Fog':
     case 'Mist':
     default:
-      return '/src/assets/icons/other.svg';
+      return '/icons/other.svg';
   }
 };
