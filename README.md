@@ -6,7 +6,7 @@ A simple weather application built with **React**, **React Query**, and the Open
 
 You can view the live demo of the app at:
 
-[Weather App Demo](https://weatherapp-reactquery.netlify.app/)
+[Weather App Demo](https://weatherapp.hellokai.dev)
 
 ## Features
 
