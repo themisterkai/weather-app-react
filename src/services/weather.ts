@@ -5,7 +5,7 @@ import { error404, forecastUrl, weatherUrl } from '../utils/constants';
 const API_KEY = import.meta.env.VITE_OPEN_WEATHER_API_KEY;
 
 const fetchWeather = async ({
-  city,
+  city = 'amsterdam',
   lat,
   lon,
 }: {
