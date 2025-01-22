@@ -1,12 +1,11 @@
 import Weather from './Weather';
-import Control from './Control';
 import Description from './Description';
 import Forecast from './Forecast';
 import SearchBar from './SearchBar';
 import { useQuery } from '@tanstack/react-query';
 import { WeatherResponse } from '../utils/types';
 import weatherService from '../services/weather';
-import { getWeatherType } from '../utils/weatherHelpers';
+import { getWeatherClassname } from '../utils/weatherHelpers';
 import Footer from './Footer';
 import Geolocation from './Geolocation';
 import Notification from './Notification';
@@ -33,9 +32,12 @@ const MainContainer = () => {
   const { main } = weather.weather[0];
 
   return (
-    <div className={'main ' + getWeatherType(main)}>
-      <div className="container">
-        <Control />
+    <div
+      className={`${getWeatherClassname(
+        main
+      )} max-w-full min-h-full flex items-start justify-center`}
+    >
+      <div className="max-w-lg my-8 mx-6 lg:mx-0">
         <Weather />
         <Description />
         <Forecast />

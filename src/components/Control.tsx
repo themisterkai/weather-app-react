@@ -18,17 +18,17 @@ const Control = () => {
   };
 
   return (
-    <div className="control">
+    <div className="whitespace-nowrap space-x-2">
       <span
         onClick={handleSetToC}
-        className={tempSetting === 'C' ? 'bold' : 'underlined'}
+        className={tempSetting === 'C' ? 'font-bold' : 'underline'}
       >
         °C
-      </span>{' '}
-      |{' '}
+      </span>
+      <span>|</span>
       <span
         onClick={handleSetToF}
-        className={tempSetting === 'F' ? 'bold' : 'underlined'}
+        className={tempSetting === 'F' ? 'font-bold' : 'underline'}
       >
         °F
       </span>

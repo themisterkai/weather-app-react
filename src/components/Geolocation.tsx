@@ -45,9 +45,9 @@ const Geolocation = () => {
     }
   };
   return (
-    <div className="geolocation">
+    <div className="mt-2">
       <span>or </span>
-      <span className="underlined" onClick={handleGeolocation}>
+      <span className="underline cursor-pointer" onClick={handleGeolocation}>
         use current location
       </span>
     </div>
