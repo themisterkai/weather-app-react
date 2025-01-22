@@ -13,7 +13,7 @@ import Notification from './Notification';
 const MainContainer = () => {
   const result = useQuery<WeatherResponse>({
     queryKey: ['weather'],
-    queryFn: () => weatherService.fetchWeather({ city: 'stockholm' }),
+    queryFn: () => weatherService.fetchWeather({}),
     retry: 1,
   });
 

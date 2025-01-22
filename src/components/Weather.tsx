@@ -9,7 +9,7 @@ const Weather = () => {
   const tempSetting = useSettingsValue();
   const result = useQuery<WeatherResponse>({
     queryKey: ['weather'],
-    queryFn: () => weatherService.fetchWeather({ city: 'amsterdam' }),
+    queryFn: () => weatherService.fetchWeather({}),
     retry: 1,
   });
 

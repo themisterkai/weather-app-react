@@ -8,7 +8,7 @@ const Forecast = () => {
   const tempSetting = useSettingsValue();
   const result = useQuery<ForecastResponse>({
     queryKey: ['forecast'],
-    queryFn: () => weatherService.fetchForecast({ city: 'Stockholm' }),
+    queryFn: () => weatherService.fetchForecast({}),
     retry: 1,
   });
 

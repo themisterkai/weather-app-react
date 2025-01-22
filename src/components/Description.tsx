@@ -9,7 +9,7 @@ import {
 const Description = () => {
   const result = useQuery<WeatherResponse>({
     queryKey: ['weather'],
-    queryFn: () => weatherService.fetchWeather({ city: 'stockholm' }),
+    queryFn: () => weatherService.fetchWeather({}),
     retry: 1,
   });
 
