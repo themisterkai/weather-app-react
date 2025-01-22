@@ -19,9 +19,9 @@ You can view the live demo of the app at:
 
 - **React**: JavaScript library for building user interfaces.
 - **React Query**: Data fetching and caching for React.
+- **Tailwind CSS**: Styling for the app.
 - **OpenWeatherMap API**: API to fetch weather data.
-- **CSS**: Styling for the app.
-- **Netlify**: Deployed the app to Netlify.
+- **Vercel**: Deployed the app to Vercel.
 
 ## Installation
 

@@ -1,19 +1,19 @@
-export const getWeatherType = (description: string) => {
+export const getWeatherClassname = (description: string) => {
   switch (description) {
     case 'Clear':
-      return 'sunny';
+      return 'bg-sunnyBg text-sunnyColor';
     case 'Clouds':
-      return 'grey';
+      return 'bg-greyBg text-greyColor';
     case 'Rain':
     case 'Thunderstorm':
     case 'Drizzle':
-      return 'wet';
+      return 'bg-wetBg text-wetColor';
     case 'Snow':
-      return 'snow';
+      return 'bg-snowBg text-snowColor';
     case 'Fog':
     case 'Mist':
     default:
-      return 'default';
+      return 'bg-defaultBg text-defaultColor';
   }
 };
 

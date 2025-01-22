@@ -3,10 +3,11 @@ import { useNotificationValue } from '../NotificationContext';
 const Notification = () => {
   const notificationText = useNotificationValue();
 
-  if (notificationText === '') {
-    return <div className="notification"></div>;
-  }
-  return <div className="notification">{notificationText}</div>;
+  return (
+    <div className="flex flex-col justify-end h-20 text-sm mb-2">
+      {notificationText}
+    </div>
+  );
 };
 
 export default Notification;

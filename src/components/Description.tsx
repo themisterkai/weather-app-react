@@ -27,9 +27,14 @@ const Description = () => {
   const { main } = weather.weather[0];
 
   return (
-    <div className="description-box">
-      <img src={returnWeatherIcon(main)} className="icon" />
-      <h2>{returnDescriptionText(name, main)}</h2>
+    <div className="my-8">
+      <img
+        src={returnWeatherIcon(main)}
+        className="h-20 origin-left-top animate-scale mb-8"
+      />
+      <h2 className="text-4xl font-bold">
+        {returnDescriptionText(name, main)}
+      </h2>
     </div>
   );
 };

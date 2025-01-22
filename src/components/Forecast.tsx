@@ -25,37 +25,40 @@ const Forecast = () => {
   const futureForecast = formatFutureForecast(forecast.list);
 
   return (
-    <div className="forecast">
+    <>
       {futureForecast.map(forecast => (
-        <div className="forecast-line" key={forecast.day}>
+        <div
+          className="flex justify-between border-b border-dashed border-current"
+          key={forecast.day}
+        >
           <div>{forecast.day}</div>
           {tempSetting === 'C' && (
-            <div className="forecast-line-temp">
-              <span className="low">
+            <div className="flex justify-between space-x-2">
+              <span className="pr-2 min-w-16 text-left">
                 <span>↓</span>
-                <span className="temp-sign">{forecast.lowC} °C</span>
+                <span className="float-right">{forecast.lowC} °C</span>
               </span>
-              <span className="high">
+              <span className="pl-1 min-w-16 text-left">
                 <span>↑ </span>
-                <span className="temp-sign">{forecast.highC} °C</span>
+                <span className="float-right">{forecast.highC} °C</span>
               </span>
             </div>
           )}
           {tempSetting === 'F' && (
-            <div className="forecast-line-temp">
-              <span className="low">
+            <div className="flex justify-between space-x-2">
+              <span className="pr-2 min-w-16 text-left">
                 <span>↓</span>
-                <span className="temp-sign">{forecast.lowF} °F</span>
+                <span className="float-right">{forecast.lowF} °F</span>
               </span>
-              <span className="high">
+              <span className="pl-1 min-w-16 text-left">
                 <span>↑</span>
-                <span className="temp-sign">{forecast.highF} °F</span>
+                <span className="float-right">{forecast.highF} °F</span>
               </span>
             </div>
           )}
         </div>
       ))}
-    </div>
+    </>
   );
 };
 

@@ -32,7 +32,7 @@ const fetchWeather = async ({
 };
 
 const fetchForecast = async ({
-  city = 'stockholm',
+  city = 'amsterdam',
   lat,
   lon,
 }: {

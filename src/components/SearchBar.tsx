@@ -47,12 +47,12 @@ const SearchBar = () => {
   };
 
   return (
-    <div className="search-bar">
+    <div className="mt-8">
       <input
+        className="border border-solid border-current rounded-md placeholder-inherit text-inherit py-3 px-2 h-5 w-60"
         value={city}
         onChange={({ target }) => setCity(target.value)}
         onKeyDown={handleKeyDown}
-        id="search-bar"
         type="text"
         placeholder="Search by city name"
       ></input>
