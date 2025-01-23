@@ -9,6 +9,7 @@ import { getWeatherClassname } from '../utils/weatherHelpers';
 import Footer from './Footer';
 import Geolocation from './Geolocation';
 import Notification from './Notification';
+import Control from './Control';
 
 const MainContainer = () => {
   const result = useQuery<WeatherResponse>({
@@ -35,9 +36,10 @@ const MainContainer = () => {
     <div
       className={`${getWeatherClassname(
         main
-      )} max-w-full min-h-full flex items-start justify-center`}
+      )} max-w-full min-h-full  flex items-start justify-center`}
     >
-      <div className="max-w-lg my-8 mx-6 lg:mx-0">
+      <div className="max-w-lg max-h-full my-8 mx-6 lg:mx-0">
+        <Control />
         <Weather />
         <Description />
         <Forecast />

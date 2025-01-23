@@ -18,7 +18,7 @@ const Control = () => {
   };
 
   return (
-    <div className="whitespace-nowrap space-x-2">
+    <div className="text-right whitespace-nowrap space-x-2">
       <span
         onClick={handleSetToC}
         className={
