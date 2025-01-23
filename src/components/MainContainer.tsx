@@ -38,7 +38,7 @@ const MainContainer = () => {
         main
       )} max-w-full min-h-full  flex items-start justify-center`}
     >
-      <div className="max-w-lg max-h-full my-8 mx-6 lg:mx-0">
+      <div className="max-w-lg max-h-full my-4 md:my-8 mx-6 lg:mx-0">
         <Control />
         <Weather />
         <Description />
