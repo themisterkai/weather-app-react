@@ -1,16 +1,10 @@
-import { useQuery } from '@tanstack/react-query';
-import weatherService from '../services/weather';
-import { WeatherResponse } from '../utils/types';
 import { celsiusToFahrenheit, getTime, round } from '../utils/helpers';
 import { useSettingsValue } from '../SettingsContext';
+import { useWeather } from '../hooks/hooks';
 
 const Weather = () => {
   const tempSetting = useSettingsValue();
-  const result = useQuery<WeatherResponse>({
-    queryKey: ['weather'],
-    queryFn: () => weatherService.fetchWeather({}),
-    retry: 1,
-  });
+  const result = useWeather();
 
   if (result.isLoading) {
     return null;

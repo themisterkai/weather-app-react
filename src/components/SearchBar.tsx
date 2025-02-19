@@ -1,41 +1,24 @@
-import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { useState } from 'react';
-import weatherService from '../services/weather';
 import {
   clearNotification,
-  setNotification,
   useNotificationDispatch,
 } from '../NotificationContext';
+import {
+  useFetchForecastMutation,
+  useFetchWeatherMutation,
+} from '../hooks/hooks';
 
 const SearchBar = () => {
-  const queryClient = useQueryClient();
   const notificationDispatch = useNotificationDispatch();
   const [city, setCity] = useState('');
 
-  const newWeatherMutation = useMutation({
-    mutationFn: weatherService.fetchWeather,
-    onSuccess: data => {
-      queryClient.setQueryData(['weather'], data);
-    },
-    onError: error => {
-      notificationDispatch(setNotification(error.message));
-    },
-  });
-
-  const newForecastMutation = useMutation({
-    mutationFn: weatherService.fetchForecast,
-    onSuccess: data => {
-      queryClient.setQueryData(['forecast'], data);
-    },
-    onError: error => {
-      notificationDispatch(setNotification(error.message));
-    },
-  });
+  const weatherMutation = useFetchWeatherMutation();
+  const forecastMutation = useFetchForecastMutation();
 
   const handleSubmit = () => {
     notificationDispatch(clearNotification());
-    newWeatherMutation.mutate({ city });
-    newForecastMutation.mutate({ city });
+    weatherMutation.mutate({ city });
+    forecastMutation.mutate({ city });
     setCity('');
   };
 

@@ -1,16 +1,10 @@
-import { useQuery } from '@tanstack/react-query';
-import weatherService from '../services/weather';
-import { ForecastResponse } from '../utils/types';
 import { formatFutureForecast } from '../utils/helpers';
 import { useSettingsValue } from '../SettingsContext';
+import { useForecast } from '../hooks/hooks';
 
 const Forecast = () => {
   const tempSetting = useSettingsValue();
-  const result = useQuery<ForecastResponse>({
-    queryKey: ['forecast'],
-    queryFn: () => weatherService.fetchForecast({}),
-    retry: 1,
-  });
+  const result = useForecast();
 
   if (result.isLoading) {
     return null;

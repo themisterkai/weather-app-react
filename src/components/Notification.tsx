@@ -4,7 +4,7 @@ const Notification = () => {
   const notificationText = useNotificationValue();
 
   return (
-    <div className="flex flex-col justify-end h-20 text-sm mb-2">
+    <div className="flex flex-col justify-end h-16 text-sm mb-2">
       {notificationText}
     </div>
   );
